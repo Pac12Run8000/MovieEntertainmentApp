@@ -8,7 +8,6 @@ class TrendingMoviesPresenter: ObservableObject {
     }
     
     func fetchTrendingMovies() {
-        // Simulate network request
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.movies = ["Movie 1", "Movie 2", "Movie 3"]
         }

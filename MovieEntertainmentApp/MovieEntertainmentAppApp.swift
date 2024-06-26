@@ -1,17 +1,13 @@
-//
-//  MovieEntertainmentAppApp.swift
-//  MovieEntertainmentApp
-//
-//  Created by Norbert Grover on 6/25/24.
-//
-
 import SwiftUI
 
 @main
 struct MovieEntertainmentAppApp: App {
+    @StateObject private var appCoordinator = AppCoordinator()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            appCoordinator.currentView
+                .environmentObject(appCoordinator)
         }
     }
 }

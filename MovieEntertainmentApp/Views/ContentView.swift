@@ -8,27 +8,29 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var appCoordinator: AppCoordinator
+    
     var body: some View {
         TabView {
-            TrendingMoviesView()
+            TrendingMoviesTab()
                 .tabItem {
                     Image(systemName: "film")
                     Text("Trending Movies")
                 }
             
-            TrendingShowsView()
+            TrendingShowsTab()
                 .tabItem {
                     Image(systemName: "tv")
                     Text("Trending Shows")
                 }
             
-            MovieSearchView()
+            MovieSearchTab()
                 .tabItem {
                     Image(systemName: "magnifyingglass")
                     Text("Movie Search")
                 }
             
-            TVSearchView()
+            TVSearchTab()
                 .tabItem {
                     Image(systemName: "magnifyingglass")
                     Text("TV Search")
