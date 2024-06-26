@@ -6,14 +6,21 @@ struct TVSearchView: View {
        
        var body: some View {
            VStack {
-               TextField("Search TV Shows", text: $query, onCommit: {
+               TextField("Search TV Shows", text: $query)
+                   .textFieldStyle(RoundedBorderTextFieldStyle())
+                   .padding()
+                   .autocorrectionDisabled(true)
+                   .autocapitalization(.none)
+               Button(action: {
                    presenter.searchTVShows(query: query)
-               })
-               .textFieldStyle(RoundedBorderTextFieldStyle())
+               }) {
+                   Text("Search")
+                       .padding()
+                       .background(Color.blue)
+                       .foregroundColor(.white)
+                       .cornerRadius(8)
+               }
                .padding()
-               .autocorrectionDisabled(true)
-               .autocapitalization(.none)
-               
                List(presenter.searchResults, id: \.self) { result in
                    Text(result)
                }
